@@ -13,9 +13,10 @@ class GlobalTestDataLoading extends GlobalBlocState {}
 
 class GlobalTestDataLoaded extends GlobalBlocState {
   final Result result;
+  final int timestamp;
 
-  const GlobalTestDataLoaded(this.result);
+  const GlobalTestDataLoaded(this.result, this.timestamp);
 
   @override
-  List<Object> get props => [result];
+  List<Object> get props => [result, timestamp];
 }

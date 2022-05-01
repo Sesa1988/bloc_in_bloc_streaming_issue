@@ -22,6 +22,6 @@ class GlobalBloc extends Bloc<GlobalBlocEvent, GlobalBlocState> {
 
     data = await _globalService.getTest();
 
-    emit(GlobalTestDataLoaded(data));
+    emit(GlobalTestDataLoaded(data, DateTime.now().millisecondsSinceEpoch));
   }
 }

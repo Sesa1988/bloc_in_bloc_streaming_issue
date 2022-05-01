@@ -9,9 +9,10 @@ abstract class DetailsBlocEvent extends Equatable {
 
 class GetDetails extends DetailsBlocEvent {
   final Result input;
+  final int timestamp;
 
-  const GetDetails(this.input);
+  const GetDetails(this.input, this.timestamp);
 
   @override
-  List<Object> get props => [input];
+  List<Object> get props => [input, timestamp];
 }

@@ -14,7 +14,7 @@ class DetailsBloc extends Bloc<DetailsBlocEvent, DetailsBlocState> {
   DetailsBloc(this._detailsService, this._globalBlocStream) : super(DetailsBlocInitial()) {
     _globalBlocStream.listen((state) {
       if (state is GlobalTestDataLoaded) {
-        add(GetDetails(state.result));
+        add(GetDetails(state.result, DateTime.now().millisecondsSinceEpoch));
       }
     });
     on<GetDetails>((event, emit) => _getDetails(event, emit));
@@ -28,6 +28,9 @@ class DetailsBloc extends Bloc<DetailsBlocEvent, DetailsBlocState> {
 
     await _detailsService.getSomeDelay();
 
-    emit(DetailsBlocResultLoaded(event.input));
+    emit(DetailsBlocResultLoaded(
+      event.input,
+      DateTime.now().millisecondsSinceEpoch,
+    ));
   }
 }

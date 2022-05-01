@@ -13,9 +13,10 @@ class DetailsBlocResultLoading extends DetailsBlocState {}
 
 class DetailsBlocResultLoaded extends DetailsBlocState {
   final Result result;
+  final int timestamp;
 
-  const DetailsBlocResultLoaded(this.result);
+  const DetailsBlocResultLoaded(this.result, this.timestamp);
 
   @override
-  List<Object> get props => [result];
+  List<Object> get props => [result, timestamp];
 }

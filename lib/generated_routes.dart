@@ -13,13 +13,16 @@ class GeneratedRoutes {
 
       return MaterialPageRoute(
         builder: (context) {
+          var globalBloc = context.read<GlobalBloc>();
+
           return MultiBlocProvider(
             providers: [
               BlocProvider(
+                lazy: false,
                 create: (context) {
                   return DetailsBloc(
                     context.read<IDetailsService>(),
-                    context.read<GlobalBloc>().stream,
+                    globalBloc.stream,
                   );
                 },
               ),

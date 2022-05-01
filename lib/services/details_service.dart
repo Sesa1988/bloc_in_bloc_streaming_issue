@@ -5,6 +5,6 @@ abstract class IDetailsService {
 class DetailsService implements IDetailsService {
   @override
   Future<void> getSomeDelay() {
-    return Future.delayed(const Duration(seconds: 3));
+    return Future.delayed(const Duration(seconds: 1));
   }
 }
