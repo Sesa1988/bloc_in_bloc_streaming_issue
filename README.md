@@ -8,8 +8,10 @@
 
 - Start app
 - Navigate on details after loading
+- Click on "Get details"
 - Go back to home
 - Navigate to details again
+- Click on "Get details"
 
 ## Result
 
