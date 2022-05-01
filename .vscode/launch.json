@@ -1,0 +1,35 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run mobile",
+            "type": "dart",
+            "request": "launch",
+            "flutterMode": "debug",
+            "program": "lib/main.dart",
+            "args": []
+        },
+        {
+            "name": "Run macos",
+            "type": "dart",
+            "request": "launch",
+            "flutterMode": "debug",
+            "program": "lib/main_desktop.dart",
+            "args": [
+                "-d",
+                "macos"
+            ]
+        },
+        {
+            "name": "Run windows",
+            "type": "dart",
+            "request": "launch",
+            "flutterMode": "debug",
+            "program": "lib/main_desktop.dart",
+            "args": [
+                "-d",
+                "windows"
+            ]
+        },
+    ]
+}
