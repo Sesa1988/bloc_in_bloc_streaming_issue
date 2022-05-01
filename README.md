@@ -15,4 +15,4 @@
 
 ## Result
 
-- Exception is thrown. Its weird that it looks like that the details bloc throws the exception
+- Exception is thrown. Its weird, it looks like that the details bloc throws the exception
