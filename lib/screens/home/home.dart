@@ -37,23 +37,25 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(15),
-        child: MaterialButton(
-          minWidth: 200,
-          height: 42,
-          disabledColor: Colors.grey[300],
-          textColor: Theme.of(context).scaffoldBackgroundColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.0),
-          ),
-          onPressed: () => Navigator.pushNamed(
-            context,
-            Details.routeName,
-            arguments: const DetailsArgs('Details'),
-          ),
-          color: Colors.blue,
-          child: const Text(
-            'Go to details',
-            style: TextStyle(color: Colors.white),
+        child: Center(
+          child: MaterialButton(
+            minWidth: 200,
+            height: 42,
+            disabledColor: Colors.grey[300],
+            textColor: Theme.of(context).scaffoldBackgroundColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+            onPressed: () => Navigator.pushNamed(
+              context,
+              Details.routeName,
+              arguments: const DetailsArgs('Details'),
+            ),
+            color: Colors.blue,
+            child: const Text(
+              'Go to details',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ),
       ),
