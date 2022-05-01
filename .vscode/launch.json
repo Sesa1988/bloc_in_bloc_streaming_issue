@@ -14,7 +14,7 @@
             "type": "dart",
             "request": "launch",
             "flutterMode": "debug",
-            "program": "lib/main_desktop.dart",
+            "program": "lib/main.dart",
             "args": [
                 "-d",
                 "macos"
@@ -25,7 +25,7 @@
             "type": "dart",
             "request": "launch",
             "flutterMode": "debug",
-            "program": "lib/main_desktop.dart",
+            "program": "lib/main.dart",
             "args": [
                 "-d",
                 "windows"

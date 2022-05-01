@@ -9,8 +9,10 @@ abstract class GlobalBlocState extends Equatable {
 
 class GlobalBlocInitial extends GlobalBlocState {}
 
+class GlobalTestDataLoading extends GlobalBlocState {}
+
 class GlobalTestDataLoaded extends GlobalBlocState {
-  final bool result;
+  final Result result;
 
   const GlobalTestDataLoaded(this.result);
 

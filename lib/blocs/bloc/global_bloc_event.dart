@@ -7,4 +7,11 @@ abstract class GlobalBlocEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class GetTestData extends GlobalBlocEvent {}
+class GetGlobalTestData extends GlobalBlocEvent {
+  final int timestamp;
+
+  const GetGlobalTestData(this.timestamp);
+
+  @override
+  List<Object> get props => [timestamp];
+}
