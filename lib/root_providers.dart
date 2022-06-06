@@ -6,22 +6,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RootProviders {
-  static MultiBlocProvider getAppWithProviders() {
-    var globalService = GlobalService();
-
-    return MultiBlocProvider(
+  static Widget getAppWithProviders() {
+    return MultiRepositoryProvider(
       providers: [
-        BlocProvider<GlobalBloc>(
-          create: (BuildContext context) => GlobalBloc(globalService),
+        RepositoryProvider<IGlobalService>(
+          create: (context) => GlobalService(),
+        ),
+        RepositoryProvider<IDetailsService>(
+          create: (context) => DetailsService(),
         ),
       ],
-      child: MultiRepositoryProvider(
+      child: MultiBlocProvider(
         providers: [
-          RepositoryProvider<IGlobalService>(
-            create: (context) => globalService,
-          ),
-          RepositoryProvider<IDetailsService>(
-            create: (context) => DetailsService(),
+          BlocProvider<GlobalBloc>(
+            create: (context) => GlobalBloc(context.read<IGlobalService>()),
           ),
         ],
         child: MyApp(),
