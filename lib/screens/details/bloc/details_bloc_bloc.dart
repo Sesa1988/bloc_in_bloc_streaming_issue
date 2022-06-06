@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:bloc_in_bloc_streaming_issue/blocs/bloc/global_bloc_bloc.dart';
 import 'package:bloc_in_bloc_streaming_issue/models/result_model.dart';
@@ -10,9 +12,11 @@ part 'details_bloc_state.dart';
 class DetailsBloc extends Bloc<DetailsBlocEvent, DetailsBlocState> {
   final IDetailsService _detailsService;
   final Stream<GlobalBlocState> _globalBlocStream;
+  late StreamSubscription _subscription;
 
-  DetailsBloc(this._detailsService, this._globalBlocStream) : super(DetailsBlocInitial()) {
-    _globalBlocStream.listen((state) {
+  DetailsBloc(this._detailsService, this._globalBlocStream)
+      : super(DetailsBlocInitial()) {
+    _subscription = _globalBlocStream.listen((state) {
       if (state is GlobalTestDataLoaded) {
         add(GetDetails(state.result, DateTime.now().millisecondsSinceEpoch));
       }
@@ -32,5 +36,11 @@ class DetailsBloc extends Bloc<DetailsBlocEvent, DetailsBlocState> {
       event.input,
       DateTime.now().millisecondsSinceEpoch,
     ));
+  }
+
+  @override
+  Future<void> close() {
+    _subscription.cancel();
+    return super.close();
   }
 }
